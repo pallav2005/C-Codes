@@ -1,0 +1,36 @@
+#include <stdio.h>
+int main() {
+  char wheeler;
+  int ihour, iminute, fhour, fminute;
+  printf("Enter your car type:");
+  scanf("%c", &wheeler);
+  printf("Enter your entry time:");
+  scanf("%d %d", &ihour, &iminute);
+  printf("Enter your exit time:");
+  scanf("%d %d", &fhour, &fminute);
+  int k = fhour - ihour;
+  int s = fminute - iminute;
+  printf("%d:%d\n", k, s);
+  int y = (k * 60) + s;
+  switch (wheeler) {
+  case 'T':
+    if (y > 120) {
+      float p = ((y - 120) / 60) * 10 + 20;
+      printf("Rs %f", p);
+      break;
+
+    } else {
+      printf("Your parking fee is: 20");
+      break;
+    }
+  case 'F':
+    if (y <= 120) {
+      printf("Your parking fee is:40");
+      break;
+    } else if (y > 120) {
+      int p = ((y - 120) / 60) * 20 + 40;
+      printf("Rs %d", p);
+      break;
+    }
+  }
+}
